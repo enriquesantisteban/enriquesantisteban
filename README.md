@@ -1,37 +1,33 @@
 <!-- HEADER CON EFECTO MAQUINA DE ESCRIBIR (Readme Typing SVG) -->
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=2E5BFF&center=true&vcenter=true&width=500&lines=¡Hola!+Soy+[Tu+Nombre];Desarrollador+Software;Apasionado+del+Open+Source;Construyendo+proyectos+geniales" alt="Typing SVG" />
-  </a>
-</div>
+ <b><h3>ENRIQUE SANTISTEBAN FERNÁNDEZ</b></h3>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Desarrollador+Full+Stack;Administrador+de+Bases+de+Datos;Soporte+T%C3%A9cnico" alt="Typing SVG" />
 
-<p align="center">
-  <em>Desarrollador enfocado en crear soluciones eficientes, escalables y visualmente atractivas.</em>
-</p>
+![GitHub Streak](https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github)
 
 ---
 
 ### 💫 Sobre mí
 
-- 🔭 Actualmente trabajando en: **[Nombre de tu proyecto o empresa]**
-- 🌱 Aprendiendo: **[Tecnología que estés estudiando actualmente, ej: Golang, Rust, AWS]**
+- 🔭 Actualmente trabajando en: **Viagro** como Programador Full Stack
+- 🌱 Aprendiendo: **Python, Node.js...**
 - 👯 Buscando colaborar en: **Proyectos Open Source**
-- 💬 Pregúntame sobre: **[Tus áreas fuertes, ej: React, Python, Arquitectura Web]**
-- 📫 Cómo contactarme: **[tu-email@dominio.com]**
+- 📫 Cómo contactarme: **[ensanfer4@gmail.com]**
 
 ---
 
-<h3 align="left">Connect with me:</h3>
+### 🌐 Contacta conmigo 
+
 <p align="left">
 <a href="https://linkedin.com/in/enriquesantisteban" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="enriquesantisteban" height="30" width="40" /></a>
 <a href="https://instagram.com/enrique_sf98" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="enrique_sf98" height="30" width="40" /></a>
+<a href="mailto:ensanfer4@gmail.com" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/gmail.svg" alt="enrique_sf98" height="30" width="40" /></a>
 </p>
 
 ---
 
-### 🛠️ Tecnologías y Herramientas (Shields.io Badges)
+### 🛠️ Tecnologías y Herramientas
 
-<!-- Puedes personalizar colores y nombres según tus tecnologías -->
+
 <p align="left">
   <!-- Lenguajes -->
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
@@ -50,43 +46,14 @@
 </p>
 
 
-[![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&langs_count=5&theme=light_github)](https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&langs_count=5&theme=light_github)
-
-[![GitHub Stats](https://github-stats-extended.vercel.app/api/wakatime?username=alan&custom_title=My%20GitHub%20Stats&langs_count=6&theme=light_github)](https://wakatime.com/@alan)
-
-
-
 ---
 
 ### 📊 Estadísticas de GitHub
 
-<div align="center">
-  <!-- GitHub Readme Stats -->
-  <img height="175" src="https://github-readme-stats.vercel.app/api?username=TU-USUARIO&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Estadísticas de GitHub" />
-  
-  <!-- GitHub Readme Streak Stats -->
-  <img height="175" src="https://github-readme-streak-stats.herokuapp.com/?user=TU-USUARIO&theme=tokyonight&hide_border=true" alt="Racha de contribuciones" />
-</div>
-
-<br>
-
-<div align="center">
   <!-- Lenguajes más usados -->
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TU-USUARIO&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" alt="Lenguajes más usados" />
-</div>
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" />
+  
+  <!-- GitHub Readme Waka Time Card -->
+  <img height="175" src="https://github-stats-extended.vercel.app/api/wakatime?username=alan&custom_title=My%20GitHub%20Stats&langs_count=6&theme=light_github" alt="Racha de contribuciones" />
 
 ---
-
-### 🌐 Redes Sociales (Shields.io Interáctivos)
-
-<p align="left">
-  <a href="https://linkedin.com/in/TU-PERFIL" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://twitter.com/TU-PERFIL" target="_blank">
-    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
-  </a>
-  <a href="mailto:tu-email@dominio.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-  </a>
-</p>
