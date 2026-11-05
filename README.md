@@ -49,6 +49,13 @@
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
 </p>
 
+
+[![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&langs_count=5&theme=light_github)](https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&langs_count=5&theme=light_github)
+
+[![GitHub Stats](https://github-stats-extended.vercel.app/api/wakatime?username=alan&custom_title=My%20GitHub%20Stats&langs_count=6&theme=light_github)](https://wakatime.com/@alan)
+
+
+
 ---
 
 ### 📊 Estadísticas de GitHub
