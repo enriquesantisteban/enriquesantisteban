@@ -1,8 +1,14 @@
 <!-- HEADER CON EFECTO MAQUINA DE ESCRIBIR (Readme Typing SVG) -->
- <b><h3>ENRIQUE SANTISTEBAN FERNÁNDEZ</b></h3>
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Desarrollador+Full+Stack;Administrador+de+Bases+de+Datos;Soporte+T%C3%A9cnico" alt="Typing SVG" />
+<div align="center">
+  <b><h3>ENRIQUE SANTISTEBAN FERNÁNDEZ</h3></b>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Desarrollador+Full+Stack;Administrador+de+Bases+de+Datos;Soporte+T%C3%A9cnico" alt="Typing SVG" />
+</div>
 
-![GitHub Streak](https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github)
+<br>
+
+<div align="center">
+  <img src="https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github" alt="GitHub Streak" />
+</div>
 
 ---
 
@@ -11,17 +17,16 @@
 - 🔭 Actualmente trabajando en: **Viagro** como Programador Full Stack
 - 🌱 Aprendiendo: **Python, Node.js...**
 - 👯 Buscando colaborar en: **Proyectos Open Source**
-- 📫 Cómo contactarme: **[ensanfer4@gmail.com]**
+- 📫 Cómo contactarme: **ensanfer4@gmail.com**
 
 ---
 
 ### 🌐 Contacta conmigo 
 
 <p align="left">
-<a href="https://linkedin.com/in/enriquesantisteban" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="enriquesantisteban" height="30" width="40" /></a>
-<a href="https://instagram.com/enrique_sf98" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="enrique_sf98" height="30" width="40" /></a>
-<a href="mailto:ensanfer4@gmail.com" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Gmail" height="28" width="35" style="filter: invert(0);" /></a>
-
+  <a href="https://linkedin.com/in/enriquesantisteban" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="40" /></a>
+  <a href="https://instagram.com/enrique_sf98" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Instagram" height="30" width="40" /></a>
+  <a href="mailto:ensanfer4@gmail.com" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Gmail" height="28" width="35" style="filter: invert(0);" /></a>
 </p>
 
 ---
@@ -30,7 +35,7 @@
 
 <p align="left">
   <!-- Programming Languages -->
-  <br><b>Languages:</b><br>
+  <b>Languages:</b><br>
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" alt="C" />
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++" />
   <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" alt="C#" />
@@ -72,15 +77,13 @@
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
 </p>
 
-
 ---
 
 ### 📊 Estadísticas de GitHub
 
+<div align="center">
   <!-- Lenguajes más usados -->
-  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" />
-  
-  <!-- GitHub Readme Waka Time Card -->
-  <img height="175" src="https://github-stats-extended.vercel.app/api/wakatime?username=alan&custom_title=My%20GitHub%20Stats&langs_count=6&theme=light_github" alt="Racha de contribuciones" />
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" /> 
+</div>
 
 ---
