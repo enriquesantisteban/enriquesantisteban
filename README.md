@@ -1,4 +1,3 @@
-<!-- HEADER CON EFECTO MAQUINA DE ESCRIBIR (Readme Typing SVG) -->
 <p align="center">
   <b><h3>ENRIQUE SANTISTEBAN FERNÁNDEZ</h3></b>
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Desarrollador+Full+Stack;Administrador+de+Bases+de+Datos;Soporte+T%C3%A9cnico" alt="Typing SVG" />
