@@ -4,9 +4,12 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=Desarrollador+Full+Stack;Administrador+de+Bases+de+Datos;Soporte+T%C3%A9cnico" alt="Typing SVG" />
 </p>
 
-<br>
-<img src="https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github" alt="GitHub Streak" />
-<img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" />
+<p align="left">
+  <img src="https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github" alt="GitHub Streak" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" />
+</p>
+
 ---
 
 ### 💫 Sobre mí
@@ -21,15 +24,9 @@
 ### 🌐 Contacta conmigo 
 
 <p align="left">
-  <a href="https://linkedin.com/in/enriquesantisteban" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://instagram.com/enrique_sf98" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram" />
-  </a>
-  <a href="mailto:ensanfer4@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />
-  </a>
+  <a href="https://linkedin.com/in/enriquesantisteban" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a> 
+  <a href="https://instagram.com/enrique_sf98" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white" alt="Instagram" /></a> 
+  <a href="mailto:ensanfer4@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" /></a>
 </p>
 
 ---
