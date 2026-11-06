@@ -3,7 +3,7 @@
   <source media="(prefers-color-scheme: light)" srcset="light.svg">
   <img alt="Enrique — Full Stack Developer" src="dark.svg" width="100%">
 </picture>
-
+<br></br>
 <p align="center">
   <a href="https://github.com/enriquesantisteban"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white"></a>
   <a href="https://instagram.com/enrique_sf98"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&amp;logo=instagram&amp;logoColor=white"></a>
