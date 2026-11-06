@@ -301,19 +301,26 @@ def build(mode):
              f'<animate attributeName="x" values="{cx_vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/>{blink(2.0)}</rect>')
 
     # details
-    details = [("Ubicación:", "Almería", c['text']), ("Educación:", "Ingeniería Informática", c['text']),
-               ("Portafolio:", "https://enriquesantisteban.github.io/portfolio/", c['link']),
-               ("Correo:", "ensanfer4@gmail.com", c['link'])]
+    details = [("Ubicación:", "Almería", c['text'], None),
+               ("Educación:", "Ingeniería Informática", c['text'], None),
+               ("Portafolio:", "enriquesantisteban.github.io/portfolio", c['link'],
+                "https://enriquesantisteban.github.io/portfolio/"),
+               ("Correo:", "ensanfer4@gmail.com", c['link'], "mailto:ensanfer4@gmail.com")]
     DCW = 7.8
-    for i, (lab, val, col) in enumerate(details):
+    for i, (lab, val, col, href) in enumerate(details):
         y = 216 + i * 22
         n = 12 + len(val)
         begin = 2.6 + i * 1.0
         cid = f"cd{i}"
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
+        value = (f'<a href="{href}" target="_blank"><text x="{TX + 12 * DCW:.1f}" y="{y}" '
+                 f'font-size="13" fill="{col}" textLength="{len(val) * DCW:.1f}" '
+                 f'lengthAdjust="spacing">{esc(val)}</text></a>') if href else (
+                 f'<text x="{TX + 12 * DCW:.1f}" y="{y}" font-size="13" fill="{col}" '
+                 f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text>')
         t.append(f'<g clip-path="url(#{cid})">'
                  f'<text x="{TX}" y="{y}" font-size="13" fill="{c["muted"]}" textLength="{len(lab) * DCW:.1f}" lengthAdjust="spacing">{esc(lab)}</text>'
-                 f'<text x="{TX + 12 * DCW:.1f}" y="{y}" font-size="13" fill="{col}" textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
+                 f'{value}</g>')
 
     # skills
     t.append(f'<text x="{TX}" y="310" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
