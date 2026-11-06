@@ -296,7 +296,7 @@ def build(mode):
 
     # skills
     t.append(f'<text x="{TX}" y="282" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
-    sections = [("Languages:", ["C", "C++", "C#", "Java", "JavaScript", "TypeScript", "Python"]),
+    sections = [("Languages:", ["C++", "C#", "Java", "JavaScript", "TypeScript", "Python", "PHP"]),
                 ("Frontend Development:", ["HTML5", "CSS3"]), ("Backend Development:", ["Node.js", "Nginx"]),
                 ("Database:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
                 ("Software:", ["Blender", "Photoshop", "Figma"]), ("Others:", ["Linux"])]
