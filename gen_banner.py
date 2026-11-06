@@ -288,9 +288,9 @@ def build(mode):
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
         dots = "·" * max(3, int(leader_width / DCW) - len(lab) - 1)
         t.append(f'<g clip-path="url(#{cid})">'
-                 f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
                  f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(lab)} {dots}</text>'
-                 f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
                  f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
 
     # skills
