@@ -2,6 +2,8 @@ import html, random
 
 W, H = 1180, 610
 FONT = "ui-monospace,'SF Mono','JetBrains Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
+BODY_FONT_SIZE = 12
+BODY_CHAR_WIDTH = 7.2
 
 P = {
     'dark': dict(
@@ -242,7 +244,7 @@ def build(mode):
     # greeting
     greet = "Hola, soy Enrique"
     defs.append(clip_typed("cg", TX - 2, 112, 44, len(greet), 18, .6, .07))
-    t.append(f'<text x="{TX}" y="146" font-size="30" font-weight="700" fill="url(#flow)" textLength="{len(greet) * 18}" lengthAdjust="spacing" clip-path="url(#cg)">{esc(greet)}</text>')
+    t.append(f'<text x="{TX}" y="146" font-size="30" font-weight="400" fill="url(#flow)" textLength="{len(greet) * 18}" lengthAdjust="spacing" clip-path="url(#cg)">{esc(greet)}</text>')
 
     # rotating role
     phrases = ["Desarrollador Full Stack", "Administrador de Base de Datos", "Soporte Técnico"]
@@ -259,23 +261,23 @@ def build(mode):
     N = len(frames)
     kt = ";".join(f"{i / N:.5f}" for i in range(N))
     dur = N * dt
-    RW_CW = 10.2
+    RW_CW = BODY_CHAR_WIDTH
     RXX = TX + 22
-    t.append(f'<text x="{TX}" y="182" font-size="17" fill="{c["a3"]}" opacity="0">›{fade(2.0, .3)}</text>')
+    t.append(f'<text x="{TX}" y="182" font-size="{BODY_FONT_SIZE}" fill="{c["a3"]}" opacity="0">›{fade(2.0, .3)}</text>')
     for pi, p in enumerate(phrases):
         vals = ";".join(f"{(k * RW_CW + (4 if k else 0)):.1f}" if f == p else "0" for f, k in frames)
         cid = f"cr{pi}"
-        defs.append(f'<clipPath id="{cid}"><rect x="{RXX - 2}" y="164" height="26" width="0">'
+        defs.append(f'<clipPath id="{cid}"><rect x="{RXX - 2}" y="168" height="20" width="0">'
                     f'<animate attributeName="width" values="{vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/></rect></clipPath>')
-        t.append(f'<text x="{RXX}" y="182" font-size="17" fill="{c["link"]}" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}</text>')
-    cx_vals = ";".join(f"{RXX + k * RW_CW + 3:.1f}" for f, k in frames)
-    t.append(f'<rect x="{RXX + 3}" y="166" width="9" height="19" fill="{c["link"]}" opacity="0">'
+        t.append(f'<text x="{RXX}" y="182" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}</text>')
+    cx_vals = ";".join(f"{RXX + k * RW_CW + 2:.1f}" for f, k in frames)
+    t.append(f'<rect x="{RXX + 2}" y="171" width="7" height="13" fill="{c["link"]}" opacity="0">'
              f'<animate attributeName="x" values="{cx_vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/>{blink(2.0)}</rect>')
 
     # details
     details = [("Ubicación", "Almería", None),
                ("Educación", "Ingeniería Informática", None)]
-    DCW = 7.8
+    DCW = BODY_CHAR_WIDTH
     value_x = TX + 220
     leader_width = value_x - TX - 10
     for i, (lab, val, href) in enumerate(details):
@@ -286,9 +288,9 @@ def build(mode):
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
         dots = "·" * max(3, int(leader_width / DCW) - len(lab) - 1)
         t.append(f'<g clip-path="url(#{cid})">'
-                 f'<text x="{TX}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" filter="url(#glowP)" '
                  f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(lab)} {dots}</text>'
-                 f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" filter="url(#glowP)" '
                  f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
 
     # skills
@@ -300,7 +302,7 @@ def build(mode):
     k = 0
     for si, (lab, items) in enumerate(sections):
         cy = 306 + si * 22
-        t.append(f'<text x="{TX}" y="{cy + 4}" font-size="10.5" fill="{c["muted"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
+        t.append(f'<text x="{TX}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["muted"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
         px = 646
         for it in items:
             w = max(36, len(it) * 7.2 + 22)
@@ -308,7 +310,7 @@ def build(mode):
                 f'<g class="pill" opacity="0">{fade(6.9 + k * .05, .35)}'
                 f'<rect x="{px:.1f}" y="{cy - 10}" width="{w:.1f}" height="20" rx="10" fill="{c["a1"]}" fill-opacity="{c["pill_op"]}" stroke="url(#flow)" stroke-width="1" filter="url(#glowP)">'
                 f'<animate attributeName="stroke-opacity" values=".55;1;.55" dur="{3 + (k % 5) * .45:.2f}s" begin="{8 + k * .1:.1f}s" repeatCount="indefinite"/></rect>'
-                f'<text x="{px + w / 2:.1f}" y="{cy + 4}" font-size="12" fill="{c["link"]}" text-anchor="middle">{esc(it)}</text></g>')
+                f'<text x="{px + w / 2:.1f}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" text-anchor="middle">{esc(it)}</text></g>')
             px += w + 7
             k += 1
 
@@ -328,11 +330,11 @@ def build(mode):
         t.append(
             f'<g opacity="0">{fade(begin, .35)}'
             f'<a class="contact-link" href="{href}" xlink:href="{href}" target="_blank">'
-            f'<text x="{TX}" y="{y}" font-size="12" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
+            f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
             f'<tspan fill="{c["text"]}">{esc(label)} </tspan>'
             f'<tspan class="leader-dots" fill="{c["muted"]}">{dots}</tspan></text>'
-            f'<text x="{value_x}" y="{y}" font-size="12" fill="{c["text"]}" '
-            f'textLength="{len(value) * 7.2:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
+            f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
+            f'textLength="{len(value) * BODY_CHAR_WIDTH:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
             f'</a></g>')
 
     body.append("".join(t))
