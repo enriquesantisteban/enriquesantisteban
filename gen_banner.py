@@ -261,17 +261,18 @@ def build(mode):
     N = len(frames)
     kt = ";".join(f"{i / N:.5f}" for i in range(N))
     dur = N * dt
-    RW_CW = BODY_CHAR_WIDTH
+    ROLE_FONT_SIZE = 17
+    RW_CW = 10.2
     RXX = TX + 22
-    t.append(f'<text x="{TX}" y="182" font-size="{BODY_FONT_SIZE}" fill="{c["a3"]}" opacity="0">›{fade(2.0, .3)}</text>')
+    t.append(f'<text x="{TX}" y="182" font-size="{ROLE_FONT_SIZE}" fill="{c["a3"]}" opacity="0">›{fade(2.0, .3)}</text>')
     for pi, p in enumerate(phrases):
         vals = ";".join(f"{(k * RW_CW + (4 if k else 0)):.1f}" if f == p else "0" for f, k in frames)
         cid = f"cr{pi}"
-        defs.append(f'<clipPath id="{cid}"><rect x="{RXX - 2}" y="168" height="20" width="0">'
+        defs.append(f'<clipPath id="{cid}"><rect x="{RXX - 2}" y="164" height="26" width="0">'
                     f'<animate attributeName="width" values="{vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/></rect></clipPath>')
-        t.append(f'<text x="{RXX}" y="182" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}</text>')
-    cx_vals = ";".join(f"{RXX + k * RW_CW + 2:.1f}" for f, k in frames)
-    t.append(f'<rect x="{RXX + 2}" y="171" width="7" height="13" fill="{c["link"]}" opacity="0">'
+        t.append(f'<text x="{RXX}" y="182" font-size="{ROLE_FONT_SIZE}" fill="{c["link"]}" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}</text>')
+    cx_vals = ";".join(f"{RXX + k * RW_CW + 3:.1f}" for f, k in frames)
+    t.append(f'<rect x="{RXX + 3}" y="166" width="9" height="19" fill="{c["link"]}" opacity="0">'
              f'<animate attributeName="x" values="{cx_vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/>{blink(2.0)}</rect>')
 
     # details
