@@ -292,7 +292,7 @@ def build(mode):
             frames += [(p, k)]
         frames += [(p, 0)] * 7
     N = len(frames)
-    kt = ";".join(f"{i / N:.5f}" for i in range(N))
+    kt = ";".join(f"{i / (N - 1):.5f}" for i in range(N))
     dur = N * dt
     ROLE_FONT_SIZE = 17
     RW_CW = 10.2
