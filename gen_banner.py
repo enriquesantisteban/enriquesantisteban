@@ -285,7 +285,7 @@ def build(mode):
         begin = 2.6 + i * 1.0
         cid = f"cd{i}"
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
-        value = (f'<a href="{href}" target="_blank"><text x="{TX + 12 * DCW:.1f}" y="{y}" '
+        value = (f'<a href="{href}" xlink:href="{href}" target="_blank"><text x="{TX + 12 * DCW:.1f}" y="{y}" '
                  f'font-size="13" fill="{col}" textLength="{len(val) * DCW:.1f}" '
                  f'lengthAdjust="spacing">{esc(val)}</text></a>') if href else (
                  f'<text x="{TX + 12 * DCW:.1f}" y="{y}" font-size="13" fill="{col}" '
@@ -335,7 +335,7 @@ def build(mode):
         cx = 1118 - (4 - i) * 50
         cy = 538
         t.append(
-            f'<a href="{href}" target="_blank"><g class="soc" opacity="0" transform="translate({cx} {cy})">{fade(8.0 + i * .12)}'
+            f'<a href="{href}" xlink:href="{href}" target="_blank"><g class="soc" opacity="0" transform="translate({cx} {cy})">{fade(8.0 + i * .12)}'
             f'<title>{name}</title>'
             f'<circle r="17" fill="{c["a1"]}" fill-opacity="{c["pill_op"] * .8:.3f}" stroke="url(#flow)" stroke-width="1" filter="url(#glowP)">'
             f'<animate attributeName="stroke-opacity" values=".5;1;.5" dur="{3 + i * .5}s" repeatCount="indefinite"/></circle>{shape}</g></a>')
