@@ -329,7 +329,7 @@ def build(mode):
 
     # skills
     t.append(f'<text x="{TX}" y="282" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
-    sections = [("Languages:", ["C++", "C#", "PHP", "Java", "JavaScript", "TypeScript", "Python"]),
+    sections = [("Languages:", ["C++", "C#", "PHP", "Java", "JavaScript", "Python"]),
                 ("Frontend Development:", ["HTML5", "CSS3"]), ("Backend Development:", ["Node.js", "Nginx"]),
                 ("Database:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
                 ("Software:", ["Blender", "Photoshop", "Figma"]), ("Others:", ["Linux"])]
@@ -337,7 +337,7 @@ def build(mode):
     for si, (lab, items) in enumerate(sections):
         cy = 306 + si * 22
         t.append(f'<text x="{TX}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
-        px = 620
+        px = 670
         for it in items:
             w = max(36, len(it) * 7.2 + 22)
             t.append(
