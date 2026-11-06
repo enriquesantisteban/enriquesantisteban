@@ -5,13 +5,13 @@ FONT = "ui-monospace,'SF Mono','JetBrains Mono',SFMono-Regular,Menlo,Consolas,'L
 
 P = {
     'dark': dict(
-        bg='#050812', panel='#0B1220', panel_op=.94, border='#36E6FF', border_op=.16,
-        text='#EAF7FF', muted='#7F9BB2', a1='#5965FF', a2='#38E8FF', a3='#5DF2C4',
-        link='#63EFFF', asc=['#47D9FF', '#8A9BFF', '#39E9D1'],
-        blob=['#1277C9', '#515BFF', '#05BFA6'], blob_op=[.15, .16, .10],
-        shadow='#000000', shadow_op=.72, noise=.035, asc_blur=1.5,
-        sheen='#68E8FF', sheen_op=.055, top_op=.035, pill_op=.11,
-        hover='brightness(1.4) saturate(1.2) drop-shadow(0 0 7px #38E8FF)'),
+        bg='#030712', panel='#0F172A', panel_op=.62, border='#FFFFFF', border_op=.08,
+        text='#F8FAFC', muted='#94A3B8', a1='#7C3AED', a2='#22D3EE', a3='#10B981',
+        link='#22D3EE', asc=['#22D3EE', '#7C3AED', '#22D3EE'],
+        blob=['#3B82F6', '#7C3AED', '#10B981'], blob_op=[.20, .22, .14],
+        shadow='#000000', shadow_op=.55, noise=.07, asc_blur=3.0,
+        sheen='#FFFFFF', sheen_op=.10, top_op=.07, pill_op=.14,
+        hover='brightness(1.45) saturate(1.2) drop-shadow(0 0 7px #22D3EE)'),
     'light': dict(
         bg='#FFFFFF', panel='#F8FAFC', panel_op=.80, border='#0F172A', border_op=.08,
         text='#0F172A', muted='#475569', a1='#2563EB', a2='#06B6D4', a3='#10B981',
@@ -128,10 +128,8 @@ def build(mode):
 
     # ---------------- defs
     defs.append(f'<clipPath id="card"><rect width="{W}" height="{H}" rx="28"/></clipPath>')
-    defs.append(f'<clipPath id="lp"><rect x="{LX}" y="{LY}" width="{LW}" height="{LHh}" rx="14"/></clipPath>')
-    defs.append(f'<clipPath id="rp"><rect x="{RX}" y="{RY}" width="{RW}" height="{RHh}" rx="14"/></clipPath>')
-    defs.append(f'<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">'
-                f'<path d="M24 0H0V24" fill="none" stroke="{c["a2"]}" stroke-opacity=".055" stroke-width=".6"/></pattern>')
+    defs.append(f'<clipPath id="lp"><rect x="{LX}" y="{LY}" width="{LW}" height="{LHh}" rx="20"/></clipPath>')
+    defs.append(f'<clipPath id="rp"><rect x="{RX}" y="{RY}" width="{RW}" height="{RHh}" rx="20"/></clipPath>')
     defs.append(f'''<linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="{RX}" y1="0" x2="{RX + 340}" y2="0" spreadMethod="reflect">
 <stop offset="0" stop-color="{c['a1']}"/><stop offset=".5" stop-color="{c['a2']}"/><stop offset="1" stop-color="{c['a3']}"/>
 <animateTransform attributeName="gradientTransform" type="translate" values="0 0;680 0" dur="9s" repeatCount="indefinite"/></linearGradient>''')
@@ -185,17 +183,16 @@ def build(mode):
     # ---------------- panel builder
     def panel(x, y, w, h, clip, flow):
         s = []
-        s.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{c["panel"]}" fill-opacity="{c["panel_op"]}" filter="url(#shadow)"/>')
+        s.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="20" fill="{c["panel"]}" fill-opacity="{c["panel_op"]}" filter="url(#shadow)"/>')
         s.append(f'<g clip-path="url(#{clip})"><rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#top)"/>'
-                 f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="url(#grid)"/>'
                  f'<g><polygon points="{x - 120},{y + h} {x - 20},{y} {x + 60},{y} {x - 40},{y + h}" fill="url(#sheen)">'
                  f'<animateTransform attributeName="transform" type="translate" values="0 0;0 0;{w + 240} 0" keyTimes="0;.35;1" dur="11s" repeatCount="indefinite"/></polygon></g></g>')
         return "".join(s)
 
     def panel_edges(x, y, w, h, flow):
-        return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="none" stroke="{c["border"]}" stroke-opacity="{c["border_op"] * 2}" stroke-width="1"/>'
-                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="none" stroke="url(#{flow})" stroke-opacity=".5" stroke-width="1.2"/>'
-                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="none" stroke="{c["a2"]}" stroke-width="2" pathLength="1000" stroke-dasharray="70 930" stroke-linecap="round" filter="url(#glowE)">'
+        return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="20" fill="none" stroke="{c["border"]}" stroke-opacity="{c["border_op"] * 2}" stroke-width="1"/>'
+                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="20" fill="none" stroke="url(#{flow})" stroke-opacity=".5" stroke-width="1.2"/>'
+                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="20" fill="none" stroke="{c["a2"]}" stroke-width="2" pathLength="1000" stroke-dasharray="70 930" stroke-linecap="round" filter="url(#glowE)">'
                 f'<animate attributeName="stroke-dashoffset" values="0;-1000" dur="7s" repeatCount="indefinite"/>'
                 f'<animate attributeName="stroke-opacity" values=".35;.9;.35" dur="3.5s" repeatCount="indefinite"/></rect>')
 
@@ -276,23 +273,23 @@ def build(mode):
              f'<animate attributeName="x" values="{cx_vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/>{blink(2.0)}</rect>')
 
     # details
-    details = [("Ubicación:", "Almería", c['text'], None),
-               ("Educación:", "Ingeniería Informática", c['text'], None)]
+    details = [("Ubicación", "Almería", None),
+               ("Educación", "Ingeniería Informática", None)]
     DCW = 7.8
-    for i, (lab, val, col, href) in enumerate(details):
+    value_x = TX + 220
+    leader_width = value_x - TX - 10
+    for i, (lab, val, href) in enumerate(details):
         y = 216 + i * 22
-        n = 12 + len(val)
+        n = int((value_x - TX) / DCW) + len(val)
         begin = 2.6 + i * 1.0
         cid = f"cd{i}"
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
-        value = (f'<a href="{href}" xlink:href="{href}" target="_blank"><text x="{TX + 12 * DCW:.1f}" y="{y}" '
-                 f'font-size="13" fill="{col}" textLength="{len(val) * DCW:.1f}" '
-                 f'lengthAdjust="spacing">{esc(val)}</text></a>') if href else (
-                 f'<text x="{TX + 12 * DCW:.1f}" y="{y}" font-size="13" fill="{col}" '
-                 f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text>')
+        dots = "·" * max(3, int(leader_width / DCW) - len(lab) - 1)
         t.append(f'<g clip-path="url(#{cid})">'
-                 f'<text x="{TX}" y="{y}" font-size="13" fill="{c["muted"]}" textLength="{len(lab) * DCW:.1f}" lengthAdjust="spacing">{esc(lab)}</text>'
-                 f'{value}</g>')
+                 f'<text x="{TX}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(lab)} {dots}</text>'
+                 f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+                 f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
 
     # skills
     t.append(f'<text x="{TX}" y="310" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
@@ -302,7 +299,7 @@ def build(mode):
                 ("Software:", ["Blender", "Photoshop", "Figma"]), ("Other:", ["Linux"])]
     k = 0
     for si, (lab, items) in enumerate(sections):
-        cy = 334 + si * 25
+        cy = 334 + si * 22
         t.append(f'<text x="{TX}" y="{cy + 4}" font-size="10.5" fill="{c["muted"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
         px = 646
         for it in items:
@@ -311,28 +308,31 @@ def build(mode):
                 f'<g class="pill" opacity="0">{fade(6.9 + k * .05, .35)}'
                 f'<rect x="{px:.1f}" y="{cy - 10}" width="{w:.1f}" height="20" rx="10" fill="{c["a1"]}" fill-opacity="{c["pill_op"]}" stroke="url(#flow)" stroke-width="1" filter="url(#glowP)">'
                 f'<animate attributeName="stroke-opacity" values=".55;1;.55" dur="{3 + (k % 5) * .45:.2f}s" begin="{8 + k * .1:.1f}s" repeatCount="indefinite"/></rect>'
-                f'<text x="{px + w / 2:.1f}" y="{cy + 4}" font-size="12" fill="{c["text"]}" text-anchor="middle">{esc(it)}</text></g>')
+                f'<text x="{px + w / 2:.1f}" y="{cy + 4}" font-size="12" fill="{c["link"]}" text-anchor="middle">{esc(it)}</text></g>')
             px += w + 7
             k += 1
 
     # separator + contact links
-    t.append(f'<line x1="{TX}" y1="502" x2="{RX + RW - 28}" y2="502" stroke="{c["border"]}" stroke-opacity=".14" opacity="0">{fade(7.8)}</line>')
-    t.append(f'<text x="{TX}" y="520" font-size="12" fill="{c["muted"]}" opacity="0">// conectemos{fade(7.8)}</text>')
+    t.append(f'<line x1="{TX}" y1="484" x2="{RX + RW - 28}" y2="484" stroke="{c["border"]}" stroke-opacity=".14" opacity="0">{fade(7.8)}</line>')
+    t.append(f'<text x="{TX}" y="500" font-size="12" fill="{c["muted"]}" opacity="0">// conectemos{fade(7.8)}</text>')
     contacts = [
-        ("Correo:", "ensanfer4@gmail.com", "mailto:ensanfer4@gmail.com"),
-        ("LinkedIn:", "www.linkedin.com/in/enriquesantisteban/", "https://www.linkedin.com/in/enriquesantisteban/"),
-        ("Instagram:", "instagram.com/enrique_sf98", "https://instagram.com/enrique_sf98"),
-        ("GitHub:", "github.com/enriquesantisteban", "https://github.com/enriquesantisteban"),
-        ("Web:", "enriquesantisteban.github.io/portfolio", "https://enriquesantisteban.github.io/portfolio/"),
+        ("Correo", "ensanfer4@gmail.com", "mailto:ensanfer4@gmail.com"),
+        ("LinkedIn", "www.linkedin.com/in/enriquesantisteban/", "https://www.linkedin.com/in/enriquesantisteban/"),
+        ("Instagram", "instagram.com/enrique_sf98", "https://instagram.com/enrique_sf98"),
+        ("GitHub", "github.com/enriquesantisteban", "https://github.com/enriquesantisteban"),
+        ("Web", "enriquesantisteban.github.io/portfolio", "https://enriquesantisteban.github.io/portfolio/"),
     ]
     for i, (label, value, href) in enumerate(contacts):
-        y = 534 + i * 10
+        y = 517 + i * 14.5
         begin = 8.0 + i * .12
+        dots = "·" * max(3, int(leader_width / DCW) - len(label) - 1)
         t.append(
             f'<g opacity="0">{fade(begin, .35)}'
             f'<a href="{href}" xlink:href="{href}" target="_blank">'
-            f'<text x="{TX}" y="{y}" font-size="10" fill="{c["muted"]}" textLength="76" lengthAdjust="spacing">{esc(label)}</text>'
-            f'<text x="{TX + 84}" y="{y}" font-size="10" fill="{c["link"]}">{esc(value)}</text>'
+            f'<text x="{TX}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+            f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(label)} {dots}</text>'
+            f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+            f'textLength="{len(value) * DCW:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
             f'</a></g>')
 
     body.append("".join(t))
