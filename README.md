@@ -11,3 +11,9 @@
   <a href="https://enriquesantisteban.github.io/portfolio/"><img alt="Web" src="https://img.shields.io/badge/Portfolio-2563EB?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white"></a>
   <a href="mailto:ensanfer4@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&amp;logo=gmail&amp;logoColor=white"></a>
 </p>
+
+<p align="left">
+  <img src="https://github-streak-bijay-shre-stha.vercel.app/api/streak-image?username=enriquesantisteban&theme=github" alt="GitHub Streak" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs?username=enriquesantisteban&layout=compact&langs_count=4&theme=light_github" alt="Lenguajes más usados" />
+</p>
