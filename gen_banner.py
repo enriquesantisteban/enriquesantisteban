@@ -292,14 +292,14 @@ def build(mode):
                  f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
 
     # skills
-    t.append(f'<text x="{TX}" y="310" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
+    t.append(f'<text x="{TX}" y="282" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
     sections = [("Languages:", ["C", "C++", "C#", "Java", "JavaScript", "TypeScript", "Python"]),
                 ("Frontend Development:", ["HTML5", "CSS3"]), ("Backend Development:", ["Node.js", "Nginx"]),
                 ("Databases:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
                 ("Software:", ["Blender", "Photoshop", "Figma"]), ("Other:", ["Linux"])]
     k = 0
     for si, (lab, items) in enumerate(sections):
-        cy = 334 + si * 22
+        cy = 306 + si * 22
         t.append(f'<text x="{TX}" y="{cy + 4}" font-size="10.5" fill="{c["muted"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
         px = 646
         for it in items:
@@ -313,8 +313,8 @@ def build(mode):
             k += 1
 
     # separator + contact links
-    t.append(f'<line x1="{TX}" y1="484" x2="{RX + RW - 28}" y2="484" stroke="{c["border"]}" stroke-opacity=".14" opacity="0">{fade(7.8)}</line>')
-    t.append(f'<text x="{TX}" y="500" font-size="12" fill="{c["muted"]}" opacity="0">// conectemos{fade(7.8)}</text>')
+    t.append(f'<line x1="{TX}" y1="456" x2="{RX + RW - 28}" y2="456" stroke="{c["border"]}" stroke-opacity=".14" opacity="0">{fade(7.8)}</line>')
+    t.append(f'<text x="{TX}" y="472" font-size="12" fill="{c["muted"]}" opacity="0">// conectemos{fade(7.8)}</text>')
     contacts = [
         ("Correo", "ensanfer4@gmail.com", "mailto:ensanfer4@gmail.com"),
         ("LinkedIn", "www.linkedin.com/in/enriquesantisteban/", "https://www.linkedin.com/in/enriquesantisteban/"),
@@ -323,7 +323,7 @@ def build(mode):
         ("Web", "enriquesantisteban.github.io/portfolio", "https://enriquesantisteban.github.io/portfolio/"),
     ]
     for i, (label, value, href) in enumerate(contacts):
-        y = 517 + i * 14.5
+        y = 489 + i * 14.5
         begin = 8.0 + i * .12
         dots = "·" * max(3, int(leader_width / DCW) - len(label) - 1)
         t.append(
@@ -346,7 +346,7 @@ def build(mode):
     style = (f'<style>text{{font-family:{FONT}}}'
              'a{cursor:pointer}a:hover text{text-decoration:underline}'
              '.pill{transform-box:fill-box;transform-origin:center;transition:transform .25s ease,filter .25s ease;cursor:pointer}'
-             f'.pill:hover{{transform:scale(1.12);filter:{c["hover"]}}}'
+             '.pill:hover{transform:scale(1.12)}'
              '</style>')
 
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
