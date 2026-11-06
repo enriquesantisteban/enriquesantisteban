@@ -1,4 +1,5 @@
-<p align="center">
-  <img src="dark.gif#gh-dark-mode-only" width="100%" alt="Banner Dark">
-  <img src="light.gif#gh-light-mode-only" width="100%" alt="Banner Light">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./light.svg">
+  <img alt="Enrique Santisteban" src="./light.svg" width="100%">
+</picture>
