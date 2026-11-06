@@ -1,0 +1,431 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients & Filters -->
+    <linearGradient id="d-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <radialGradient id="d-glow-1" cx="20%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="d-glow-2" cx="80%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="d-glow-3" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Glass Panel Gradient & Border -->
+    <linearGradient id="d-panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#090d16" stop-opacity="0.85" />
+    </linearGradient>
+
+    <linearGradient id="d-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.15)" />
+      <stop offset="50%" stop-color="rgba(124,58,237,0.3)" />
+      <stop offset="100%" stop-color="rgba(34,211,238,0.15)" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="d-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="50%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#10b981" />
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="100%;200%;100%" dur="8s" repeatCount="indefinite" />
+    </linearGradient>
+
+    <linearGradient id="d-ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="d-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+    
+    <filter id="d-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <filter id="d-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Noise Texture Pattern -->
+    <pattern id="d-noise" width="100" height="100" patternUnits="userSpaceOnUse">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.03" />
+    </pattern>
+  </defs>
+
+  <!-- Styles & Keyframes -->
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .sans { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes pulseGlow {
+      0% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.4; }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(650px); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    .floating-ascii { animation: float 6s ease-in-out infinite; }
+    .pulsing-bg { animation: pulseGlow 5s ease-in-out infinite; }
+    .scanner { animation: scanline 4s linear infinite; }
+    .cursor { animation: blink 1s step-end infinite; }
+    
+    .pill {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pill:hover {
+      transform: translateY(-2px) scale(1.03);
+      filter: brightness(1.2);
+    }
+    .social-icon {
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .social-icon:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px rgba(34,211,238,0.6));
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1180" height="610" rx="20" fill="url(#d-bg)" />
+  <rect width="1180" height="610" rx="20" fill="url(#d-noise)" />
+
+  <!-- Ambient Glows -->
+  <circle cx="200" cy="150" r="300" fill="url(#d-glow-1)" filter="url(#d-blur)" class="pulsing-bg" />
+  <circle cx="950" cy="450" r="350" fill="url(#d-glow-2)" filter="url(#d-blur)" class="pulsing-bg" style="animation-delay: 2.5s;" />
+  <circle cx="600" cy="300" r="250" fill="url(#d-glow-3)" filter="url(#d-blur)" class="pulsing-bg" style="animation-delay: 1s;" />
+
+  <!-- Outer Glass Frame -->
+  <rect x="20" y="20" width="1140" height="570" rx="16" fill="url(#d-panel)" stroke="url(#d-border)" stroke-width="1.5" filter="url(#d-shadow)" />
+
+  <!-- Top Glass Highlight Reflection -->
+  <path d="M 36 21 L 1144 21 C 1153.39 21 1161 28.61 1161 38 L 1161 50 C 700 50, 400 50, 19 50 L 19 38 C 19 28.61 26.61 21 36 21 Z" fill="rgba(255,255,255,0.03)" pointer-events="none" />
+
+  <!-- ========================================== -->
+  <!-- LEFT SIDE: ASCII TERMINAL PORTRAIT (38%)  -->
+  <!-- ========================================== -->
+  <g transform="translate(45, 45)">
+    <!-- Terminal Window Frame -->
+    <rect width="400" height="520" rx="12" fill="#060911" fill-opacity="0.8" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    
+    <!-- Window Header -->
+    <path d="M 0 12 C 0 5.37 5.37 0 12 0 L 388 0 C 394.63 0 400 5.37 400 12 L 400 36 L 0 36 Z" fill="rgba(255,255,255,0.02)" />
+    <circle cx="24" cy="18" r="6" fill="#ef4444" fill-opacity="0.8" />
+    <circle cx="44" cy="18" r="6" fill="#f59e0b" fill-opacity="0.8" />
+    <circle cx="64" cy="18" r="6" fill="#10b981" fill-opacity="0.8" />
+    <text x="200" y="22" class="mono" font-size="11" fill="#94a3b8" text-anchor="middle" letter-spacing="1">enrique@cyber-node:~</text>
+    <line x1="0" y1="36" x2="400" y2="36" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+
+    <!-- ASCII Art Container with Floating Animation -->
+    <g class="floating-ascii" filter="url(#d-glow-filter)">
+      <text x="30" y="80" class="mono" font-size="11" font-weight="bold" fill="url(#d-ascii-grad)" xml:space="preserve">
+        <tspan x="30" dy="0">       .---.       </tspan>
+        <tspan x="30" dy="15">      /     \      </tspan>
+        <tspan x="30" dy="15">     | () () |     </tspan>
+        <tspan x="30" dy="15">      \  _  /      </tspan>
+        <tspan x="30" dy="15">      /`---`\      </tspan>
+        <tspan x="30" dy="15">     /       \     </tspan>
+        <tspan x="30" dy="15">    |         |    </tspan>
+        <tspan x="30" dy="15">    \  \   /  /    </tspan>
+        <tspan x="30" dy="15">     `---`---`     </tspan>
+      </text>
+
+      <!-- ASCII Developer Portrait Detailed Matrix -->
+      <text x="30" y="235" class="mono" font-size="9" fill="url(#d-ascii-grad)" xml:space="preserve" opacity="0.95">
+        <tspan x="30" dy="0">    ███████████████    </tspan>
+        <tspan x="30" dy="13">  ██░░░░░░░░░░░░░░░██  </tspan>
+        <tspan x="30" dy="13"> ██░░██░░░░░░░░██░░██ </tspan>
+        <tspan x="30" dy="13"> ██░░██░░░░░░░░██░░██ </tspan>
+        <tspan x="30" dy="13"> ██░░░░░░████░░░░░░██ </tspan>
+        <tspan x="30" dy="13"> ██░░░░██░░░░██░░░░██ </tspan>
+        <tspan x="30" dy="13">  ██░░░░██████░░░░██  </tspan>
+        <tspan x="30" dy="13">   ████░░░░░░░░████   </tspan>
+        <tspan x="30" dy="13">     ███████████     </tspan>
+        <tspan x="30" dy="13">    ▄▄█████████▄▄    </tspan>
+        <tspan x="30" dy="13">   ███████████████   </tspan>
+        <tspan x="30" dy="13">  ███          ███   </tspan>
+      </text>
+    </g>
+
+    <!-- Scanline Effect over ASCII -->
+    <g clip-path="url(#ascii-clip)">
+      <clipPath id="ascii-clip">
+        <rect x="20" y="45" width="360" height="400" rx="8" />
+      </clipPath>
+      <rect x="20" y="0" width="360" height="4" fill="#22d3ee" opacity="0.4" filter="url(#d-glow-filter)" class="scanner" />
+    </g>
+
+    <!-- Terminal Status Footer -->
+    <rect x="20" y="460" width="360" height="40" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" />
+    <circle cx="38" cy="480" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="52" y="484" class="mono" font-size="11" fill="#10b981">SYSTEM_ONLINE // v2.6.0</text>
+    <text x="350" y="484" class="mono" font-size="11" fill="#94a3b8" text-anchor="end">READY</text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- RIGHT SIDE: PROFESSIONAL TERMINAL PANEL   -->
+  <!-- ========================================== -->
+  <g transform="translate(470, 45)">
+    <!-- Main Header / Greeting -->
+    <text x="0" y="32" class="sans" font-size="28" font-weight="800" fill="#f8fafc" letter-spacing="-0.5">
+      Hola, soy <tspan fill="url(#d-accent)">Enrique</tspan>
+    </text>
+
+    <!-- Subtitle / Typing Simulation Role -->
+    <g transform="translate(0, 62)">
+      <rect width="260" height="26" rx="6" fill="rgba(124,58,237,0.15)" stroke="rgba(124,58,237,0.3)" />
+      <text x="12" y="17" class="mono" font-size="12" font-weight="600" fill="#22d3ee">Full Stack Developer</text>
+      <rect x="156" y="7" width="2" height="12" fill="#22d3ee" class="cursor" />
+    </g>
+
+    <!-- Sequential Details & Metadata Box -->
+    <g transform="translate(0, 105)">
+      <rect width="665" height="110" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" />
+      
+      <!-- Detail 1: Location -->
+      <g transform="translate(20, 24)">
+        <circle cx="6" cy="6" r="4" fill="#7c3aed" />
+        <text x="20" y="10" class="sans" font-size="13" font-weight="600" fill="#94a3b8">Ubicación:</text>
+        <text x="100" y="10" class="sans" font-size="13" font-weight="500" fill="#f8fafc">Almería, España</text>
+      </g>
+
+      <!-- Detail 2: Education -->
+      <g transform="translate(340, 24)">
+        <circle cx="6" cy="6" r="4" fill="#22d3ee" />
+        <text x="20" y="10" class="sans" font-size="13" font-weight="600" fill="#94a3b8">Educación:</text>
+        <text x="100" y="10" class="sans" font-size="13" font-weight="500" fill="#f8fafc">Ingeniería Informática</text>
+      </g>
+
+      <!-- Detail 3: Portfolio -->
+      <g transform="translate(20, 68)">
+        <circle cx="6" cy="6" r="4" fill="#10b981" />
+        <text x="20" y="10" class="sans" font-size="13" font-weight="600" fill="#94a3b8">Portafolio:</text>
+        <text x="100" y="10" class="sans" font-size="12" font-weight="500" fill="#22d3ee">enriquesantisteban.github.io/portfolio/</text>
+      </g>
+
+      <!-- Detail 4: Email -->
+      <g transform="translate(340, 68)">
+        <circle cx="6" cy="6" r="4" fill="#f59e0b" />
+        <text x="20" y="10" class="sans" font-size="13" font-weight="600" fill="#94a3b8">Email:</text>
+        <text x="75" y="10" class="sans" font-size="12" font-weight="500" fill="#f8fafc">ensanfer4@gmail.com</text>
+      </g>
+    </g>
+
+    <!-- Skills Section -->
+    <g transform="translate(0, 235)">
+      <text x="0" y="15" class="sans" font-size="13" font-weight="700" fill="#94a3b8" letter-spacing="0.5">TECH STACK & HABILIDADES</text>
+      
+      <!-- Pills Group 1 (Row 1) -->
+      <g transform="translate(0, 32)">
+        <!-- C++ -->
+        <g class="pill" transform="translate(0, 0)">
+          <rect width="48" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="24" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">C++</text>
+        </g>
+        <!-- C# -->
+        <g class="pill" transform="translate(54, 0)">
+          <rect width="42" height="26" rx="6" fill="#1e293b" stroke="rgba(124,58,237,0.4)" stroke-width="1" />
+          <text x="21" y="17" class="mono" font-size="11" font-weight="600" fill="#a78bfa" text-anchor="middle">C#</text>
+        </g>
+        <!-- Java -->
+        <g class="pill" transform="translate(102, 0)">
+          <rect width="50" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="25" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Java</text>
+        </g>
+        <!-- JavaScript -->
+        <g class="pill" transform="translate(158, 0)">
+          <rect width="84" height="26" rx="6" fill="#1e293b" stroke="rgba(245,158,11,0.4)" stroke-width="1" />
+          <text x="42" y="17" class="mono" font-size="11" font-weight="600" fill="#fbbf24" text-anchor="middle">JavaScript</text>
+        </g>
+        <!-- TypeScript -->
+        <g class="pill" transform="translate(248, 0)">
+          <rect width="90" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="45" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">TypeScript</text>
+        </g>
+        <!-- Python -->
+        <g class="pill" transform="translate(344, 0)">
+          <rect width="68" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="34" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Python</text>
+        </g>
+        <!-- HTML5 -->
+        <g class="pill" transform="translate(418, 0)">
+          <rect width="68" height="26" rx="6" fill="#1e293b" stroke="rgba(239,68,68,0.4)" stroke-width="1" />
+          <text x="34" y="17" class="mono" font-size="11" font-weight="600" fill="#f87171" text-anchor="middle">HTML5</text>
+        </g>
+        <!-- CSS3 -->
+        <g class="pill" transform="translate(492, 0)">
+          <rect width="58" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="29" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">CSS3</text>
+        </g>
+        <!-- Node.js -->
+        <g class="pill" transform="translate(556, 0)">
+          <rect width="75" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="37" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Node.js</text>
+        </g>
+      </g>
+
+      <!-- Pills Group 2 (Row 2) -->
+      <g transform="translate(0, 68)">
+        <!-- Nginx -->
+        <g class="pill" transform="translate(0, 0)">
+          <rect width="58" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="29" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Nginx</text>
+        </g>
+        <!-- MongoDB -->
+        <g class="pill" transform="translate(64, 0)">
+          <rect width="78" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="39" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">MongoDB</text>
+        </g>
+        <!-- MySQL -->
+        <g class="pill" transform="translate(148, 0)">
+          <rect width="66" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="33" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">MySQL</text>
+        </g>
+        <!-- Oracle -->
+        <g class="pill" transform="translate(220, 0)">
+          <rect width="64" height="26" rx="6" fill="#1e293b" stroke="rgba(239,68,68,0.4)" stroke-width="1" />
+          <text x="32" y="17" class="mono" font-size="11" font-weight="600" fill="#f87171" text-anchor="middle">Oracle</text>
+        </g>
+        <!-- SQLite -->
+        <g class="pill" transform="translate(290, 0)">
+          <rect width="64" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="32" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">SQLite</text>
+        </g>
+        <!-- Docker -->
+        <g class="pill" transform="translate(360, 0)">
+          <rect width="66" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="33" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">Docker</text>
+        </g>
+        <!-- Jenkins -->
+        <g class="pill" transform="translate(432, 0)">
+          <rect width="68" height="26" rx="6" fill="#1e293b" stroke="rgba(239,68,68,0.4)" stroke-width="1" />
+          <text x="34" y="17" class="mono" font-size="11" font-weight="600" fill="#f87171" text-anchor="middle">Jenkins</text>
+        </g>
+        <!-- Blender -->
+        <g class="pill" transform="translate(506, 0)">
+          <rect width="68" height="26" rx="6" fill="#1e293b" stroke="rgba(245,158,11,0.4)" stroke-width="1" />
+          <text x="34" y="17" class="mono" font-size="11" font-weight="600" fill="#fbbf24" text-anchor="middle">Blender</text>
+        </g>
+      </g>
+
+      <!-- Pills Group 3 (Row 3) -->
+      <g transform="translate(0, 104)">
+        <!-- Photoshop -->
+        <g class="pill" transform="translate(0, 0)">
+          <rect width="82" height="26" rx="6" fill="#1e293b" stroke="rgba(34,211,238,0.4)" stroke-width="1" />
+          <text x="41" y="17" class="mono" font-size="11" font-weight="600" fill="#22d3ee" text-anchor="middle">Photoshop</text>
+        </g>
+        <!-- Figma -->
+        <g class="pill" transform="translate(88, 0)">
+          <rect width="58" height="26" rx="6" fill="#1e293b" stroke="rgba(16,185,129,0.4)" stroke-width="1" />
+          <text x="29" y="17" class="mono" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Figma</text>
+        </g>
+        <!-- Git -->
+        <g class="pill" transform="translate(152, 0)">
+          <rect width="46" height="26" rx="6" fill="#1e293b" stroke="rgba(239,68,68,0.4)" stroke-width="1" />
+          <text x="23" y="17" class="mono" font-size="11" font-weight="600" fill="#f87171" text-anchor="middle">Git</text>
+        </g>
+        <!-- Linux -->
+        <g class="pill" transform="translate(204, 0)">
+          <rect width="58" height="26" rx="6" fill="#1e293b" stroke="rgba(245,158,11,0.4)" stroke-width="1" />
+          <text x="29" y="17" class="mono" font-size="11" font-weight="600" fill="#fbbf24" text-anchor="middle">Linux</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Socials / Bottom Section -->
+    <g transform="translate(0, 420)">
+      <line x1="0" y1="0" x2="665" y2="0" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+      
+      <!-- Social Buttons Container -->
+      <g transform="translate(0, 20)">
+        
+        <!-- GitHub -->
+        <a href="https://github.com/enriquesantisteban" target="_blank">
+          <g class="social-icon" transform="translate(0, 0)">
+            <rect width="115" height="34" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <!-- GitHub SVG Icon -->
+            <path transform="translate(12, 9) scale(0.7)" fill="#f8fafc" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+            <text x="38" y="21" class="sans" font-size="12" font-weight="600" fill="#f8fafc">GitHub</text>
+          </g>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/enriquesantisteban/" target="_blank">
+          <g class="social-icon" transform="translate(125, 0)">
+            <rect width="118" height="34" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <path transform="translate(12, 9) scale(0.7)" fill="#22d3ee" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            <text x="38" y="21" class="sans" font-size="12" font-weight="600" fill="#f8fafc">LinkedIn</text>
+          </g>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/enrique_sf98" target="_blank">
+          <g class="social-icon" transform="translate(253, 0)">
+            <rect width="124" height="34" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <path transform="translate(12, 9) scale(0.7)" fill="#f472b6" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            <text x="38" y="21" class="sans" font-size="12" font-weight="600" fill="#f8fafc">Instagram</text>
+          </g>
+        </a>
+
+        <!-- Portafolio Website -->
+        <a href="https://enriquesantisteban.github.io/portfolio/" target="_blank">
+          <g class="social-icon" transform="translate(387, 0)">
+            <rect width="112" height="34" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <path transform="translate(12, 9) scale(0.7)" fill="#10b981" d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 20.931c-3.217-.197-5.85-2.83-6.047-6.047h3.047c.25 1.71 1.584 3.044 3.294 3.294v2.753zm0-5.931h-4.957c-.286-.948-.443-1.954-.443-2.986 0-1.032.157-2.038.443-2.986h4.957v5.972zm0-7.972v-2.753c1.71.25 3.044 1.584 3.294 3.294h-3.294zm-5.047 0c.197-3.217 2.83-5.85 6.047-6.047v2.753c-1.71.25-3.044 1.584-3.294 3.294h-2.753zm11.094 2c-.286.948-.443 1.954-.443 2.986 0 1.032.157 2.038.443 2.986h-4.957v-5.972h4.957zm-4.957-7.972c3.217.197 5.85 2.83 6.047 6.047h-3.047c-.25-1.71-1.584-3.044-3.294-3.294v-2.753zm6.047 14.019c-.197 3.217-2.83 5.85-6.047 6.047v-2.753c1.71-.25 3.044-1.584 3.294-3.294h2.753z" />
+            <text x="38" y="21" class="sans" font-size="12" font-weight="600" fill="#f8fafc">Web</text>
+          </g>
+        </a>
+
+        <!-- Gmail -->
+        <a href="mailto:ensanfer4@gmail.com" target="_blank">
+          <g class="social-icon" transform="translate(509, 0)">
+            <rect width="112" height="34" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+            <path transform="translate(12, 10) scale(0.65)" fill="#f59e0b" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            <text x="38" y="21" class="sans" font-size="12" font-weight="600" fill="#f8fafc">Email</text>
+          </g>
+        </a>
+
+      </g>
+    </g>
+
+  </g>
+</svg>
