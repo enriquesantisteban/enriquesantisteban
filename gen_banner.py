@@ -1,4 +1,5 @@
 import html, random
+from xml.dom import minidom
 
 W, H = 1180, 610
 FONT = "ui-monospace,'SF Mono','JetBrains Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
@@ -116,6 +117,38 @@ def fade(begin, dur=.4):
 def blink(begin=0):
     return (f'<animate attributeName="opacity" values="1;0" keyTimes="0;.5" calcMode="discrete" '
             f'dur="1.1s" begin="{begin}s" repeatCount="indefinite"/>')
+
+
+def pretty_svg(svg):
+    root = minidom.parseString(svg).documentElement
+
+    def render(node, depth=0, preserve=False):
+        indent = "  " * depth
+        if node.nodeType == node.TEXT_NODE:
+            return html.escape(node.data, quote=False)
+        if node.nodeType == node.COMMENT_NODE:
+            return f"{indent}<!--{node.data}-->"
+        if node.nodeType != node.ELEMENT_NODE:
+            return ""
+
+        attrs = "".join(
+            f' {attr.name}="{html.escape(attr.value, quote=True)}"'
+            for attr in node.attributes.values()
+        )
+        opening = f"<{node.tagName}{attrs}>"
+        children = [child for child in node.childNodes if child.nodeType != node.TEXT_NODE or child.data.strip()]
+        if not children:
+            return f"{indent}<{node.tagName}{attrs}/>"
+
+        preserve = preserve or node.localName in {"text", "style", "title", "desc"}
+        if preserve:
+            content = "".join(render(child, 0, True) for child in children)
+            return f"{indent}{opening}{content}</{node.tagName}>"
+
+        content = "\n".join(render(child, depth + 1) for child in children)
+        return f"{indent}{opening}\n{content}\n{indent}</{node.tagName}>"
+
+    return render(root)
 
 
 def build(mode):
@@ -296,7 +329,7 @@ def build(mode):
 
     # skills
     t.append(f'<text x="{TX}" y="282" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
-    sections = [("Languages:", ["C++", "C#", "Java", "JavaScript", "TypeScript", "Python", "PHP"]),
+    sections = [("Languages:", ["C++", "C#", "PHP", "Java", "JavaScript", "TypeScript", "Python"]),
                 ("Frontend Development:", ["HTML5", "CSS3"]), ("Backend Development:", ["Node.js", "Nginx"]),
                 ("Database:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
                 ("Software:", ["Blender", "Photoshop", "Figma"]), ("Others:", ["Linux"])]
@@ -304,7 +337,7 @@ def build(mode):
     for si, (lab, items) in enumerate(sections):
         cy = 306 + si * 22
         t.append(f'<text x="{TX}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
-        px = 646
+        px = 620
         for it in items:
             w = max(36, len(it) * 7.2 + 22)
             t.append(
@@ -362,5 +395,5 @@ def build(mode):
 
 for m in ("dark", "light"):
     with open(f"{m}.svg", "w", encoding="utf-8") as f:
-        f.write(build(m))
+        f.write(pretty_svg(build(m)) + "\n")
     print(m, "ok")
