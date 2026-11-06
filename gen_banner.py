@@ -319,8 +319,7 @@ def build(mode):
         ("Correo", "ensanfer4@gmail.com", "mailto:ensanfer4@gmail.com"),
         ("LinkedIn", "www.linkedin.com/in/enriquesantisteban/", "https://www.linkedin.com/in/enriquesantisteban/"),
         ("Instagram", "instagram.com/enrique_sf98", "https://instagram.com/enrique_sf98"),
-        ("GitHub", "github.com/enriquesantisteban", "https://github.com/enriquesantisteban"),
-        ("Web", "enriquesantisteban.github.io/portfolio", "https://enriquesantisteban.github.io/portfolio/"),
+        ("Portfolio", "enriquesantisteban.github.io/portfolio", "https://enriquesantisteban.github.io/portfolio/"),
     ]
     for i, (label, value, href) in enumerate(contacts):
         y = 489 + i * 14.5
@@ -328,10 +327,11 @@ def build(mode):
         dots = "·" * max(3, int(leader_width / DCW) - len(label) - 1)
         t.append(
             f'<g opacity="0">{fade(begin, .35)}'
-            f'<a href="{href}" xlink:href="{href}" target="_blank">'
-            f'<text x="{TX}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
-            f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(label)} {dots}</text>'
-            f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["link"]}" filter="url(#glowP)" '
+            f'<a class="contact-link" href="{href}" xlink:href="{href}" target="_blank">'
+            f'<text x="{TX}" y="{y}" font-size="13" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
+            f'<tspan fill="{c["text"]}">{esc(label)} </tspan>'
+            f'<tspan class="leader-dots" fill="{c["muted"]}">{dots}</tspan></text>'
+            f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["text"]}" '
             f'textLength="{len(value) * DCW:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
             f'</a></g>')
 
@@ -344,7 +344,8 @@ def build(mode):
     body.append(f'<rect x="0" y="-3" width="{W}" height="2" fill="url(#scanH)"><animateTransform attributeName="transform" type="translate" values="0 0;0 {H + 6}" dur="8s" repeatCount="indefinite"/></rect>')
 
     style = (f'<style>text{{font-family:{FONT}}}'
-             'a{cursor:pointer}a:hover text{text-decoration:underline}'
+             'a{cursor:pointer;text-decoration:none}'
+             f'.leader-dots{{transition:fill .2s,filter .2s}}.contact-link:hover .leader-dots{{fill:{c["link"]};filter:url(#glowP)}}'
              '.pill{transform-box:fill-box;transform-origin:center;transition:transform .25s ease,filter .25s ease;cursor:pointer}'
              '.pill:hover{transform:scale(1.12)}'
              '</style>')
