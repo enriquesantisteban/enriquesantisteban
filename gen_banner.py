@@ -328,11 +328,11 @@ def build(mode):
         t.append(
             f'<g opacity="0">{fade(begin, .35)}'
             f'<a class="contact-link" href="{href}" xlink:href="{href}" target="_blank">'
-            f'<text x="{TX}" y="{y}" font-size="13" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
+            f'<text x="{TX}" y="{y}" font-size="12" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
             f'<tspan fill="{c["text"]}">{esc(label)} </tspan>'
             f'<tspan class="leader-dots" fill="{c["muted"]}">{dots}</tspan></text>'
-            f'<text x="{value_x}" y="{y}" font-size="13" fill="{c["text"]}" '
-            f'textLength="{len(value) * DCW:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
+            f'<text x="{value_x}" y="{y}" font-size="12" fill="{c["text"]}" '
+            f'textLength="{len(value) * 7.2:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
             f'</a></g>')
 
     body.append("".join(t))
@@ -345,7 +345,6 @@ def build(mode):
 
     style = (f'<style>text{{font-family:{FONT}}}'
              'a{cursor:pointer;text-decoration:none}'
-             f'.leader-dots{{transition:fill .2s,filter .2s}}.contact-link:hover .leader-dots{{fill:{c["link"]};filter:url(#glowP)}}'
              '.pill{transform-box:fill-box;transform-origin:center;transition:transform .25s ease,filter .25s ease;cursor:pointer}'
              '.pill:hover{transform:scale(1.12)}'
              '</style>')
