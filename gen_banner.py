@@ -289,21 +289,21 @@ def build(mode):
         defs.append(clip_typed(cid, TX - 2, y - 14, 20, n, DCW, begin, .016))
         dots = "·" * max(3, int(leader_width / DCW) - len(lab) - 1)
         t.append(f'<g clip-path="url(#{cid})">'
-                 f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
+                 f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" '
                  f'textLength="{leader_width:.1f}" lengthAdjust="spacing">{esc(lab)} {dots}</text>'
-                 f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
+                 f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" '
                  f'textLength="{len(val) * DCW:.1f}" lengthAdjust="spacing">{esc(val)}</text></g>')
 
     # skills
     t.append(f'<text x="{TX}" y="282" font-size="12" fill="{c["muted"]}" opacity="0">$ skills --list{fade(6.3)}</text>')
     sections = [("Languages:", ["C", "C++", "C#", "Java", "JavaScript", "TypeScript", "Python"]),
                 ("Frontend Development:", ["HTML5", "CSS3"]), ("Backend Development:", ["Node.js", "Nginx"]),
-                ("Databases:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
-                ("Software:", ["Blender", "Photoshop", "Figma"]), ("Other:", ["Linux"])]
+                ("Database:", ["MongoDB", "MySQL", "Oracle", "SQLite"]), ("DevOps:", ["Docker", "Jenkins"]),
+                ("Software:", ["Blender", "Photoshop", "Figma"]), ("Others:", ["Linux"])]
     k = 0
     for si, (lab, items) in enumerate(sections):
         cy = 306 + si * 22
-        t.append(f'<text x="{TX}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["muted"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
+        t.append(f'<text x="{TX}" y="{cy + 4}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" opacity="0">{esc(lab)}{fade(6.5 + si * .1)}</text>')
         px = 646
         for it in items:
             w = max(36, len(it) * 7.2 + 22)
@@ -332,9 +332,9 @@ def build(mode):
             f'<g opacity="0">{fade(begin, .35)}'
             f'<a class="contact-link" href="{href}" xlink:href="{href}" target="_blank">'
             f'<text x="{TX}" y="{y}" font-size="{BODY_FONT_SIZE}" textLength="{leader_width:.1f}" lengthAdjust="spacing">'
-            f'<tspan fill="{c["text"]}">{esc(label)} </tspan>'
-            f'<tspan class="leader-dots" fill="{c["muted"]}">{dots}</tspan></text>'
-            f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["text"]}" '
+            f'<tspan fill="{c["link"]}">{esc(label)} </tspan>'
+            f'<tspan class="leader-dots" fill="{c["link"]}">{dots}</tspan></text>'
+            f'<text x="{value_x}" y="{y}" font-size="{BODY_FONT_SIZE}" fill="{c["link"]}" '
             f'textLength="{len(value) * BODY_CHAR_WIDTH:.1f}" lengthAdjust="spacing">{esc(value)}</text>'
             f'</a></g>')
 
