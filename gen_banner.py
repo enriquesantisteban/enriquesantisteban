@@ -300,10 +300,20 @@ def build(mode):
     t.append(f'<text x="{TX}" y="182" font-size="{ROLE_FONT_SIZE}" fill="{c["a3"]}" opacity="0">›{fade(2.0, .3)}</text>')
     for pi, p in enumerate(phrases):
         vals = ";".join(f"{(k * RW_CW + (4 if k else 0)):.1f}" if f == p else "0" for f, k in frames)
+        active = [i for i, (frame_phrase, k) in enumerate(frames) if frame_phrase == p and k > 0]
+        start = active[0] / (N - 1)
+        end = (active[-1] + 1) / (N - 1)
+        if active[0] == 0:
+            opacity_values = "1;0;0"
+            opacity_times = f"0;{end:.5f};1"
+        else:
+            opacity_values = "0;1;0;0"
+            opacity_times = f"0;{start:.5f};{end:.5f};1"
         cid = f"cr{pi}"
         defs.append(f'<clipPath id="{cid}"><rect x="{RXX - 2}" y="164" height="26" width="0">'
                     f'<animate attributeName="width" values="{vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/></rect></clipPath>')
-        t.append(f'<text x="{RXX}" y="182" font-size="{ROLE_FONT_SIZE}" fill="{c["link"]}" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}</text>')
+        t.append(f'<text x="{RXX}" y="182" font-size="{ROLE_FONT_SIZE}" fill="{c["link"]}" opacity="0" textLength="{len(p) * RW_CW:.1f}" lengthAdjust="spacing" clip-path="url(#{cid})">{esc(p)}'
+                 f'<animate attributeName="opacity" values="{opacity_values}" keyTimes="{opacity_times}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/></text>')
     cx_vals = ";".join(f"{RXX + k * RW_CW + 3:.1f}" for f, k in frames)
     t.append(f'<rect x="{RXX + 3}" y="166" width="9" height="19" fill="{c["link"]}" opacity="0">'
              f'<animate attributeName="x" values="{cx_vals}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.2f}s" begin="2s" repeatCount="indefinite"/>{blink(2.0)}</rect>')
